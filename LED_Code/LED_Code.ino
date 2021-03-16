@@ -2,7 +2,7 @@
 /*
  * Set all your variables here
  */
-int LedPin = 9; //set which pin the LED is connected to
+const int LedPin = 9; //set which pin the LED is connected to, it is set to a constant as it wont change 
 
 /*
  * The setup function is called once at the start when the code runs
