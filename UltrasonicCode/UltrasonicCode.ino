@@ -15,6 +15,9 @@ void setup() {
 void loop() {
   long duration, cm;
 
+  /*
+   * gather input from the ultrasonic sensor
+   */
   pinMode(pingPin, OUTPUT);
   digitalWrite(pingPin, LOW);
   delayMicroseconds(2);
@@ -27,15 +30,23 @@ void loop() {
 
   cm = microsecondsToCentimeters(duration);
 
+  /*
+   * print the output
+   */
   Serial.print(cm + "cm");
   Serial.println();
 
+  /*
+   * delay between getting and printing data each time 
+   */
   delay(100);
 }
 
 long microsecondsToCentimeters(long microseconds) {
-  // The speed of sound is 340 m/s or 29 microseconds per centimeter.
-  // The ping travels out and back, so to find the distance of the object we
-  // take half of the distance travelled.
+  /* 
+   * The speed of sound is 340 m/s or 29 microseconds per centimeter.
+   * The ping travels out and back, so to find the distance of the object we
+   * take half of the distance travelled.
+   */
   return microseconds / 29 / 2;
 }
